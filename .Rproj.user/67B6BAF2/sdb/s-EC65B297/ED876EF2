@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Problem5_BubbleSort\"\nauthor: \"Akira MATSUI\"\ndate: \"March 27, 2017\"\noutput: pdf_document\n---\n\n\n# Introduction\nIn this section, we will learn \"[Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)\" which is the one of the famous algorithms. Here is the simple explanation. \n\nThere is a list that has some number.\n\n`(2,7,1,6)`\n\nWhat you need to do is to put these number in numerical order. Bubble sort is a method to do that by comparing each pair of adjacent items and swapping them if they are in the wrong order.\n\n### First Step\n\n`(2,1,7,6)`\n\n### Second Step\n\n`(1,2,6,7)`\n\nOn this example, the list is ordered in numerical order in second step. This algorithms is terminated when we do no change any number in that step.\n\n\n# Question\n\n- you have `BS <- as.integer( runif(100, min = 1, max = 99) )`\n- Imprement `bubble sort` make `BS` to be sorted\n\n## Sample Answer\n\n```{r}\n bubble<- function(BS){\n     N <- length(BS) #Number of factor\n     flag = TRUE\n     while(flag){\n       flag = FALSE\n       for (i in 2:N-1){\n         if(BS[i] > BS[i+1]){\n           B = BS[i]\n           S = BS[i+1]\n           BS[i] = S\n           BS[i+1] = B\n           flag = TRUE\n          }\n        }\n     }\n     return(BS)\n }\n BS <- as.integer( runif(100, min = 1, max = 99) )\n print(\"##########################BEFORE#########################################\")\n print(BS)\n print(\"##########################AFTER#########################################\")\n bubble(BS)\n```\n\n\n\n## swap function\nIf you want to use `swap()` function, \"seqinr\" library provide it.\n\n\n```{r, eval=FALSE}\ninstall.packages(\"seqinr\")\n```\n\n\n```{r}\n bubble<- function(BS){\n     library(seqinr)\n     N <- length(BS) #Number of factor\n     flag = TRUE\n     while(flag){\n       flag = FALSE\n       for (i in 2:N-1){\n         if(BS[i] > BS[i+1]){\n           swap(BS[i],BS[i+1])\n           flag = TRUE\n          }\n        }\n     }\n     return(BS)\n }\n BS <- as.integer( runif(100, min = 1, max = 99) )\n print(\"##########################BEFORE#########################################\")\n print(BS)\n print(\"##########################AFTER#########################################\")\n bubble(BS)\n```\n\n\n\n\n\n\n",
+    "created" : 1490578168792.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2648981850",
+    "id" : "ED876EF2",
+    "lastKnownWriteTime" : 1490594392,
+    "last_content_update" : 1490594392507,
+    "path" : "~/Dropbox/TA_Sato/Quiz/Problem5_BubbleSort/Problem5_BubbleSort/Problem5_BubbleSort.Rmd",
+    "project_path" : "Problem5_BubbleSort.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

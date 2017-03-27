@@ -1,0 +1,99 @@
+---
+title: "Problem5_BubbleSort"
+author: "Akira MATSUI"
+date: "March 27, 2017"
+output: pdf_document
+---
+
+
+# Introduction
+In this section, we will learn "[Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)" which is the one of the famous algorithms. Here is the simple explanation. 
+
+There is a list that has some number.
+
+`(2,7,1,6)`
+
+What you need to do is to put these number in numerical order. Bubble sort is a method to do that by comparing each pair of adjacent items and swapping them if they are in the wrong order.
+
+### First Step
+
+`(2,1,7,6)`
+
+### Second Step
+
+`(1,2,6,7)`
+
+On this example, the list is ordered in numerical order in second step. This algorithms is terminated when we do no change any number in that step.
+
+
+# Question
+
+- you have `BS <- as.integer( runif(100, min = 1, max = 99) )`
+- Imprement `bubble sort` make `BS` to be sorted
+
+## Sample Answer
+
+```{r}
+ bubble<- function(BS){
+     N <- length(BS) #Number of factor
+     flag = TRUE
+     while(flag){
+       flag = FALSE
+       for (i in 2:N-1){
+         if(BS[i] > BS[i+1]){
+           B = BS[i]
+           S = BS[i+1]
+           BS[i] = S
+           BS[i+1] = B
+           flag = TRUE
+          }
+        }
+     }
+     return(BS)
+ }
+ BS <- as.integer( runif(100, min = 1, max = 99) )
+ print("##########################BEFORE#########################################")
+ print(BS)
+ print("##########################AFTER#########################################")
+ bubble(BS)
+```
+
+
+
+## swap function
+If you want to use `swap()` function, "seqinr" library provide it.
+
+
+```{r, eval=FALSE}
+install.packages("seqinr")
+```
+
+
+```{r}
+ bubble<- function(BS){
+     library(seqinr)
+     N <- length(BS) #Number of factor
+     flag = TRUE
+     while(flag){
+       flag = FALSE
+       for (i in 2:N-1){
+         if(BS[i] > BS[i+1]){
+           swap(BS[i],BS[i+1])
+           flag = TRUE
+          }
+        }
+     }
+     return(BS)
+ }
+ BS <- as.integer( runif(100, min = 1, max = 99) )
+ print("##########################BEFORE#########################################")
+ print(BS)
+ print("##########################AFTER#########################################")
+ bubble(BS)
+```
+
+
+
+
+
+
