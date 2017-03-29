@@ -72,3 +72,11 @@ test_swap <- function() {
 test_bubble_sort_asc()
 test_bubble_sort_desc()
 test_swap()
+
+
+# Main ----
+
+set.seed(1)
+data <- sample(1:100, replace = TRUE)
+sorted <- bubble_sort(data)
+cat(sorted)
